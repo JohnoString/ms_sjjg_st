@@ -1,0 +1,7 @@
+E:/private/code/protobuf_test/bin/protobuf-build/CMakeFiles/protoc.dir
+E:/private/code/protobuf_test/bin/protobuf-build/CMakeFiles/libprotobuf-lite.dir
+E:/private/code/protobuf_test/bin/protobuf-build/CMakeFiles/libprotoc.dir
+E:/private/code/protobuf_test/bin/protobuf-build/CMakeFiles/libprotobuf.dir
+E:/private/code/protobuf_test/bin/protobuf-build/CMakeFiles/INSTALL.dir
+E:/private/code/protobuf_test/bin/protobuf-build/CMakeFiles/ALL_BUILD.dir
+E:/private/code/protobuf_test/bin/protobuf-build/CMakeFiles/ZERO_CHECK.dir
