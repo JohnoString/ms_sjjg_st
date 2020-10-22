@@ -1,3 +1,0 @@
-E:/private/code/protobuf_test/out/build/x86-Release/CMakeFiles/protobuf_test.dir
-E:/private/code/protobuf_test/out/build/x86-Release/CMakeFiles/edit_cache.dir
-E:/private/code/protobuf_test/out/build/x86-Release/CMakeFiles/rebuild_cache.dir
