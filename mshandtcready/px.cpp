@@ -4,7 +4,7 @@
 #include <cassert>
 using namespace std;
 
-// cp {4 1 7 6 9 2 8 0 3 5} 
+// kp {4 1 7 6 9 2 8 0 3 5} 
 int SubSort(int* arr, int left, int right)
 {
 	int tmp = arr[right];

@@ -13,32 +13,8 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="源文件\px">
-      <UniqueIdentifier>{02658a5a-a3c7-4d2d-87a1-dcc392cd7284}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\cz">
-      <UniqueIdentifier>{83cf2ddf-02e3-4b58-ada7-4c4b210a2216}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\lb">
-      <UniqueIdentifier>{7e93f33a-ad7c-4a5e-b640-e56243afe056}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\zfc">
-      <UniqueIdentifier>{3008a922-1a86-401e-80fa-8a83c5692281}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\s">
-      <UniqueIdentifier>{b6b6bfdb-0436-4128-8a45-fea34d82ff45}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\st_leec">
-      <UniqueIdentifier>{8fbc3ef3-e926-4633-88a7-3484472aef4d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="源文件\sjms">
       <UniqueIdentifier>{2bc22e54-017e-4d50-9be7-55dd726bc8a8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\dxc_s">
-      <UniqueIdentifier>{c98c1029-a0b5-4638-8fd8-1b383e7cf4c0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\c++JC">
-      <UniqueIdentifier>{37e94756-506c-4e60-a523-50deb476b94f}</UniqueIdentifier>
     </Filter>
     <Filter Include="源文件\ms">
       <UniqueIdentifier>{d3d2ebca-7be9-4d8d-974a-af2be9a6fe04}</UniqueIdentifier>
@@ -49,22 +25,73 @@
     <Filter Include="源文件\lru">
       <UniqueIdentifier>{a29c6f3e-f8c9-4c32-84ba-02bddf6d1496}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\chazhao">
+      <UniqueIdentifier>{83cf2ddf-02e3-4b58-ada7-4c4b210a2216}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\paixu">
+      <UniqueIdentifier>{02658a5a-a3c7-4d2d-87a1-dcc392cd7284}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\string">
+      <UniqueIdentifier>{3008a922-1a86-401e-80fa-8a83c5692281}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\duoxiancheng">
+      <UniqueIdentifier>{c98c1029-a0b5-4638-8fd8-1b383e7cf4c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\xiangmu">
+      <UniqueIdentifier>{cfdb7444-c96e-4eb6-92ac-1da78146f940}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\st_leec_shuati">
+      <UniqueIdentifier>{8fbc3ef3-e926-4633-88a7-3484472aef4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\jichu">
+      <UniqueIdentifier>{37e94756-506c-4e60-a523-50deb476b94f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\suo">
+      <UniqueIdentifier>{b6b6bfdb-0436-4128-8a45-fea34d82ff45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\shu">
+      <UniqueIdentifier>{60028a23-44bc-4746-8efd-daaeb6fdc4ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\caozuoxitong">
+      <UniqueIdentifier>{9e981fdc-8a52-4d7f-88c9-54173733148e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\lianbiao_zhan_duilie">
+      <UniqueIdentifier>{7e93f33a-ad7c-4a5e-b640-e56243afe056}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\tu">
+      <UniqueIdentifier>{98c7b8d8-0fef-4c94-8ea7-2cf350cec3b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\jisuanjiwangluo">
+      <UniqueIdentifier>{3716f45b-897f-4757-939b-4039c8a2f394}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\fenzhi_dongtaiguihua">
+      <UniqueIdentifier>{48a58330-6d49-40a8-a215-610d9a0e8aad}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C++11.cpp">
       <Filter>源文件\ms\sina</Filter>
     </ClCompile>
     <ClCompile Include="px.cpp">
-      <Filter>源文件\px</Filter>
+      <Filter>源文件\paixu</Filter>
     </ClCompile>
     <ClCompile Include="s.cpp">
-      <Filter>源文件\s</Filter>
+      <Filter>源文件\suo</Filter>
     </ClCompile>
     <ClCompile Include="lru.cpp">
       <Filter>源文件\lru</Filter>
     </ClCompile>
     <ClCompile Include="test.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="wangluoxiangguan.cpp">
+      <Filter>源文件\jisuanjiwangluo</Filter>
+    </ClCompile>
+    <ClCompile Include="chazhao.cpp">
+      <Filter>源文件\chazhao</Filter>
+    </ClCompile>
+    <ClCompile Include="string.cpp">
+      <Filter>源文件\string</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

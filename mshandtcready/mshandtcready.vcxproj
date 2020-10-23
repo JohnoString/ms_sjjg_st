@@ -148,10 +148,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="C++11.cpp" />
+    <ClCompile Include="chazhao.cpp" />
     <ClCompile Include="lru.cpp" />
     <ClCompile Include="px.cpp" />
     <ClCompile Include="s.cpp" />
+    <ClCompile Include="string.cpp" />
     <ClCompile Include="test.cpp" />
+    <ClCompile Include="wangluoxiangguan.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

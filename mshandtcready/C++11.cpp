@@ -40,7 +40,7 @@ int main()
     auto d = 1.1;
     auto a = { 1, 2 }; // std::initializer_list<int>
 
-    // 遍历 foreach
+    // 遍历
     for (auto &i : v) // 对象类型&可避免多次拷贝
     {
         ;
@@ -94,6 +94,31 @@ public:
 private:
     int m_a;
 };
+
+//二、循环引用
+
+struct Node
+{
+    shared_ptr<Node> _pre;
+    shared_ptr<Node> _next;
+
+    ~Node()
+    {
+        cout << "~Node():" << this << endl;
+    }
+    int data;
+};
+
+void FunTest()
+{
+    shared_ptr<Node> Node1(new Node);
+    shared_ptr<Node> Node2(new Node);
+    Node1->_next = Node2;
+    Node2->_pre = Node1;
+
+    cout << "Node1.use_count:" << Node1.use_count() << endl;
+    cout << "Node2.use_count:" << Node2.use_count() << endl;
+}
 
 int main()
 {
@@ -153,7 +178,7 @@ int main()
     cout << sp1.use_count() << endl; // 4
     cout << sp2.use_count() << endl; // 4
     cout << sp3.use_count() << endl; // 4
-    //关注源码实现：只有拷贝构造函数被调用时引用计数才会加1, 构造只是开辟引用计数的堆内存，并初始化为1
+    //关注源码实现：只有拷贝构造函数、赋值运算符重载函数被调用时引用计数才会加1, 构造只是开辟引用计数的堆内存，并初始化为1
 
     //template<class T>
     //class SharpedPtr
@@ -261,38 +286,12 @@ int main()
         通过定制删除器的帮助。
     */
 
-    //二、循环引用
-    /*
-    struct Node
-    {
-        shared_ptr<Node> _pre;
-        shared_ptr<Node> _next;
-
-        ~Node()
-        {
-            cout << "~Node():" << this << endl;
-        }
-        int data;
-    };
-
-    void FunTest()
-    {
-        shared_ptr<Node> Node1(new Node);
-        shared_ptr<Node> Node2(new Node);
-        Node1->_next = Node2;
-        Node2->_pre = Node1;
-
-        cout << "Node1.use_count:"<<Node1.use_count() << endl;
-        cout << "Node2.use_count:"<< Node2.use_count() << endl;
-    }
-
-    int main()
+   // int main()
     {
         FunTest();
         system("pause");
         return 0;
     }
-    */
 
     // weak_ptr：weak_ptr是为配合shared_ptr而引入的一种智能指针来协助shared_ptr工作，它可以从一个shared_ptr或另一个weak_ptr对象构造，它的构造和析构不会引起引用记数的增加或减少。没有重载* 和->但可以使用lock获得一个可用的shared_ptr对象。
     return 0;
