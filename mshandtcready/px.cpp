@@ -162,6 +162,8 @@ void heapSort(int array[], int size) {
 
 // wp
 
+// guibing
+
 int main()
 {
 	int arr[10] = { 4, 1, 7, 6, 9, 2, 8, 0, 3, 5 };
