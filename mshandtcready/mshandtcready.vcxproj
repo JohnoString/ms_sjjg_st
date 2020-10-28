@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -149,11 +149,17 @@
   <ItemGroup>
     <ClCompile Include="C++11.cpp" />
     <ClCompile Include="chazhao.cpp" />
+    <ClCompile Include="dachangmianshiti.cpp" />
+    <ClCompile Include="jianli.cpp" />
+    <ClCompile Include="jichu.cpp" />
     <ClCompile Include="lru.cpp" />
     <ClCompile Include="px.cpp" />
     <ClCompile Include="s.cpp" />
+    <ClCompile Include="shu.cpp" />
+    <ClCompile Include="sjms.cpp" />
     <ClCompile Include="string.cpp" />
     <ClCompile Include="test.cpp" />
+    <ClCompile Include="tu.cpp" />
     <ClCompile Include="wangluoxiangguan.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

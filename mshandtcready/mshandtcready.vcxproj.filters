@@ -34,9 +34,6 @@
     <Filter Include="源文件\string">
       <UniqueIdentifier>{3008a922-1a86-401e-80fa-8a83c5692281}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\duoxiancheng">
-      <UniqueIdentifier>{c98c1029-a0b5-4638-8fd8-1b383e7cf4c0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="源文件\xiangmu">
       <UniqueIdentifier>{cfdb7444-c96e-4eb6-92ac-1da78146f940}</UniqueIdentifier>
     </Filter>
@@ -45,9 +42,6 @@
     </Filter>
     <Filter Include="源文件\jichu">
       <UniqueIdentifier>{37e94756-506c-4e60-a523-50deb476b94f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\suo">
-      <UniqueIdentifier>{b6b6bfdb-0436-4128-8a45-fea34d82ff45}</UniqueIdentifier>
     </Filter>
     <Filter Include="源文件\shu">
       <UniqueIdentifier>{60028a23-44bc-4746-8efd-daaeb6fdc4ed}</UniqueIdentifier>
@@ -66,6 +60,9 @@
     </Filter>
     <Filter Include="源文件\fenzhi_dongtaiguihua">
       <UniqueIdentifier>{48a58330-6d49-40a8-a215-610d9a0e8aad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\suo">
+      <UniqueIdentifier>{b6b6bfdb-0436-4128-8a45-fea34d82ff45}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -92,6 +89,24 @@
     </ClCompile>
     <ClCompile Include="string.cpp">
       <Filter>源文件\string</Filter>
+    </ClCompile>
+    <ClCompile Include="dachangmianshiti.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="jianli.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="jichu.cpp">
+      <Filter>源文件\jichu</Filter>
+    </ClCompile>
+    <ClCompile Include="shu.cpp">
+      <Filter>源文件\shu</Filter>
+    </ClCompile>
+    <ClCompile Include="sjms.cpp">
+      <Filter>源文件\sjms</Filter>
+    </ClCompile>
+    <ClCompile Include="tu.cpp">
+      <Filter>源文件\tu</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
