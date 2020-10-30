@@ -49,9 +49,6 @@
     <Filter Include="源文件\caozuoxitong">
       <UniqueIdentifier>{9e981fdc-8a52-4d7f-88c9-54173733148e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\lianbiao_zhan_duilie">
-      <UniqueIdentifier>{7e93f33a-ad7c-4a5e-b640-e56243afe056}</UniqueIdentifier>
-    </Filter>
     <Filter Include="源文件\tu">
       <UniqueIdentifier>{98c7b8d8-0fef-4c94-8ea7-2cf350cec3b0}</UniqueIdentifier>
     </Filter>
@@ -63,6 +60,18 @@
     </Filter>
     <Filter Include="源文件\suo">
       <UniqueIdentifier>{b6b6bfdb-0436-4128-8a45-fea34d82ff45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\lianbiao">
+      <UniqueIdentifier>{31da5573-d4a3-4c8c-9118-924553cd9783}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\hash">
+      <UniqueIdentifier>{f5f86df3-3c75-4f75-9277-852b64700a19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\zhan_duilie">
+      <UniqueIdentifier>{7e93f33a-ad7c-4a5e-b640-e56243afe056}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\dcmst">
+      <UniqueIdentifier>{fcc38d6c-782a-40e2-86cb-193d32e2221d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -90,9 +99,6 @@
     <ClCompile Include="string.cpp">
       <Filter>源文件\string</Filter>
     </ClCompile>
-    <ClCompile Include="dachangmianshiti.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="jianli.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -107,6 +113,21 @@
     </ClCompile>
     <ClCompile Include="tu.cpp">
       <Filter>源文件\tu</Filter>
+    </ClCompile>
+    <ClCompile Include="lianbiao.cpp">
+      <Filter>源文件\lianbiao</Filter>
+    </ClCompile>
+    <ClCompile Include="hash.cpp">
+      <Filter>源文件\hash</Filter>
+    </ClCompile>
+    <ClCompile Include="1.cpp">
+      <Filter>源文件\st_leec_shuati</Filter>
+    </ClCompile>
+    <ClCompile Include="didi.cpp">
+      <Filter>源文件\dcmst</Filter>
+    </ClCompile>
+    <ClCompile Include="jingdong.cpp">
+      <Filter>源文件\dcmst</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -147,11 +147,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="1.cpp" />
     <ClCompile Include="C++11.cpp" />
     <ClCompile Include="chazhao.cpp" />
-    <ClCompile Include="dachangmianshiti.cpp" />
+    <ClCompile Include="didi.cpp" />
+    <ClCompile Include="hash.cpp" />
     <ClCompile Include="jianli.cpp" />
     <ClCompile Include="jichu.cpp" />
+    <ClCompile Include="jingdong.cpp" />
+    <ClCompile Include="lianbiao.cpp" />
     <ClCompile Include="lru.cpp" />
     <ClCompile Include="px.cpp" />
     <ClCompile Include="s.cpp" />

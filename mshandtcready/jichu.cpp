@@ -1,3 +1,4 @@
+#if 0
 // map unorder_map(新版的hash_map)
 /*
 需要引入的头文件不同
@@ -51,3 +52,4 @@ unordered_map的用法和map是一样的，提供了 insert，size，count等操作，并且里面的元
 //不允许键重复
 //所有元素是通过键进行自动排序的
 //map的键是不能修改的，但是其键对应的值是可以修改的
+#endif
