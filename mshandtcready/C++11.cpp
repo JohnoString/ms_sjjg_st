@@ -111,13 +111,54 @@ struct Node
 
 void FunTest()
 {
-    shared_ptr<Node> Node1(new Node);
-    shared_ptr<Node> Node2(new Node);
-    Node1->_next = Node2;
-    Node2->_pre = Node1;
+    shared_ptr<Node> Node1(new Node); //1
+    shared_ptr<Node> Node2(new Node); //1 
+    Node1->_next = Node2; //Node2.use_count()/Node1->_next.use_count()+1
+    Node2->_pre = Node1;  //Node1.use_count()/Node2->_pre.use_count()+1
 
-    cout << "Node1.use_count:" << Node1.use_count() << endl;
-    cout << "Node2.use_count:" << Node2.use_count() << endl;
+    cout << "Node1.use_count:" << Node1.use_count() << " Node1->_next.use_count:" << Node1->_next.use_count() << endl; //2
+    cout << "Node2.use_count:" << Node2.use_count() << " Node2->_pre.use_count:" << Node2->_pre.use_count() << endl; //2
+    // shared_ptr智能指针循环引用问题一句话概括就是：要释放的堆对象被该堆对象自己内部的智能指针成员变量增加引用计数阻止了。
+
+    // week_ptr参考链接:https://blog.csdn.net/albertsh/article/details/82286999?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-1.control
+    weak_ptr<Node> wk_ptr_a = Node2;
+    weak_ptr<Node> wk_ptr_b = wk_ptr_a;
+    cout << "wk_ptr_a use count : " << wk_ptr_a.use_count() << endl; // 输出：wk_ptr use count : 2
+    cout << "wk_ptr_b use count : " << wk_ptr_b.use_count() << endl; // 输出：wk_ptr1 use count : 2
+
+    if (!wk_ptr_a.expired())
+    {
+        wk_ptr_a.lock()->show();        // 输出：this is node class
+    }
+
+    if (!wk_ptr_b.expired())
+    {
+        wk_ptr_b.lock()->show();        // 输出：this is node class
+    }
+
+    // 编译错误
+    // 编译必须作用于相同的指针类型之间
+    // wk_ptr_a.swap(wk_ptr_b);         // 调用交换函数
+
+    wk_ptr_b.reset();                   // 将wk_ptr_b的指向清空
+    if (wk_ptr_b.expired())
+    {
+        cout << "wk_ptr_b is invalid" << endl;  // 输出：wk_ptr_b is invalid 说明改指针已经无效
+    }
+
+    if (!wk_ptr_b.expired())
+    {
+        wk_ptr_b.lock()->show();        // 输出：this is node class 调用赋值操作后，wk_ptr_b恢复有效
+    }
+
+    // 编译错误
+    // 编译必须作用于相同的指针类型之间
+    // wk_ptr_b = wk_ptr_a;
+
+
+    // 最后输出的引用计数还是1，说明之前使用weak_ptr类型赋值，不会影响引用计数
+    cout << "Node1 use count : " << Node1.use_count() << endl; // 输出：ptr_a use count : 2
+    cout << "Node2 use count : " << Node2.use_count() << endl; // 输出：ptr_b use count : 2
 }
 
 int main()
@@ -297,4 +338,93 @@ int main()
     return 0;
 }
 
+#endif
+
+#if 0
+#include <iostream>
+#include <type_traits>
+#include <typeinfo>
+#include <memory>
+using namespace std;
+
+struct A
+{
+    A(int&& n)
+    {
+        cout << "rvalue overload, n=" << n << endl;
+    }
+    A(int& n)
+    {
+        cout << "lvalue overload, n=" << n << endl;
+    }
+};
+
+class B
+{
+public:
+    template<class T1, class T2, class T3>
+    B(T1&& t1, T2&& t2, T3&& t3) :
+        a1_(std::forward<T1>(t1)),
+        a2_(std::forward<T2>(t2)),
+        a3_(std::forward<T3>(t3))
+    {
+
+    }
+private:
+    A a1_, a2_, a3_;
+};
+
+template <class T, class U>
+std::unique_ptr<T> make_unique1(U&& u)
+{
+    //return std::unique_ptr<T>(new T(std::forward<U>(u)));
+    return std::unique_ptr<T>(new T(std::move(u)));
+}
+
+template <class T, class... U>
+std::unique_ptr<T> make_unique(U&&... u)
+{
+    //return std::unique_ptr<T>(new T(std::forward<U>(u)...));
+    return std::unique_ptr<T>(new T(std::move(u)...));
+}
+
+int main()
+{
+    auto p1 = make_unique1<A>(2);
+
+    int i = 10;
+    auto p2 = make_unique1<A>(i);
+
+    int j = 100;
+    //auto p3 = make_unique<B>(i, 2, j);
+    return 0;
+}
+#endif
+
+#if 0
+#include <iostream>
+#include<string>
+
+template<class T>
+void MutiArg(const T& t)
+{
+    std::cout << "t=" << t << std::endl;
+    std::cout << "end" << std::endl;
+}
+
+template<class T1, class... Args>
+void MutiArg(const T1& t1, Args... args)
+{
+    std::cout << t1 << std::endl;
+   //MutiArg(std::forward<Args>(args)...);
+    MutiArg(args...);
+}
+
+void main()
+{
+    MutiArg(1, 1.2, 3, "string", 'c', 1, 3435);
+
+    int a;
+    std::weak_ptr<int> a = std::shared_ptr<int>(new int(10));
+}
 #endif

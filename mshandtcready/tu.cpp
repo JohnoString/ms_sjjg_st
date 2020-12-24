@@ -1,4 +1,4 @@
-// 创建图:将抽象数据结构具象为数组存储数据
+// 创建图_邻接矩阵
 #if 0
 #include <iostream>
 #include <stdio.h>
@@ -118,4 +118,236 @@ int main()
 	return 0;
 }
 
+#endif
+
+// 图基本操作_邻接表
+#if 0
+#include <iostream>
+#include <vector>
+using namespace std;
+
+#define MAX_SIZE 100
+
+// 表节点
+//template <class InfoData>
+struct EdgeNode
+{
+	//InfoData info;   // 边的权值
+	uint32_t pos;
+	EdgeNode* next;
+};
+
+// 头节点
+template <class VexData>
+struct VexNode
+{
+	VexData data;
+	EdgeNode* next;
+};
+
+template <class VexData>
+class Graph
+{
+public:
+	Graph(uint32_t vex_num, uint32_t edge_num, bool direct = false) :vex_num_(vex_num), edge_num_(edge_num), direct_(direct) 
+	{
+		memset(&adjlist_, 0, sizeof(adjlist_)); 
+	}
+
+	bool CreateGraph();
+	bool Print();
+
+	// 广度优先遍历
+	bool BfsTravel();
+	
+	// 深度优先遍历
+	bool DfsTravel();
+	bool Destory();
+
+private:
+	void DFS(uint32_t pos);
+	void BFS(uint32_t pos);
+
+private:
+	VexNode<VexData> adjlist_[MAX_SIZE];
+	uint32_t vex_num_;
+	uint32_t edge_num_;
+	bool direct_;
+};
+
+template <class VexData>
+bool Graph<VexData>::CreateGraph()
+{
+	if (vex_num_ <= 0 || edge_num_ <= 0)
+	{
+		return false;
+	}
+
+	// 构建顶点表
+	cout << "请输入顶点" << endl;
+	for (uint32_t i = 0; i < vex_num_; ++i)
+	{
+		cin >> adjlist_[i].data;
+		adjlist_[i].next = nullptr;
+	}
+
+	// 构建边表
+	uint32_t va, vb;
+	EdgeNode* pnode = nullptr;
+	for (uint32_t j = 0; j < edge_num_; ++j)
+	{
+		cout << "请输入相邻两个顶点下标, 需要考虑有向无向问题" << endl;
+		cin >> va >> vb;
+		pnode = new EdgeNode;
+		pnode->pos = vb;
+		pnode->next = adjlist_[va].next;
+		adjlist_[va].next = pnode;
+
+		if (!direct_)   // 无向图
+		{
+			pnode = new EdgeNode;
+			pnode->pos = va;
+			pnode->next = adjlist_[vb].next;
+			adjlist_[vb].next = pnode;
+		}
+	}
+
+	return true;
+}
+
+template <class VexData>
+bool Graph<VexData>::Print()
+{
+	uint32_t i, j;
+	EdgeNode* pnode = nullptr;
+	for (i = 0; i < vex_num_; i++)
+	{
+		cout << i << "->";
+		pnode = adjlist_[i].next;
+		while (1)
+		{
+			if (pnode == nullptr)
+			{
+				cout << "^";
+				break;
+			}
+
+			cout << pnode->pos << "->";
+			pnode = pnode->next;
+		}
+		cout << endl;
+	}
+	return true;
+}
+
+#include <queue>
+uint32_t visit_b[MAX_SIZE] = { 0 };
+template <class VexData>
+void Graph<VexData>::BFS(uint32_t pos)
+{
+	if (pos < 0 || pos >= vex_num_ || adjlist_ == nullptr)
+	{
+		return;
+	}
+
+	EdgeNode* pnode = nullptr;
+
+	queue<uint32_t> vexque;
+	vexque.push(pos);
+	cout << "visit->" << adjlist_[pos].data << " ";
+	visit_b[pos] = 1;
+	while (!vexque.empty())
+	{
+		uint32_t sub_pos = vexque.front();
+		vexque.pop();
+		pnode = adjlist_[sub_pos].next;
+
+		while (pnode != nullptr)
+		{
+			if (!visit_b[pnode->pos])
+			{
+				vexque.push(pnode->pos);
+				cout << "visit->" << adjlist_[pnode->pos].data << " ";
+				visit_b[pnode->pos] = 1;
+			}
+
+			pnode = pnode->next;
+		}
+	}
+	cout << endl;
+}
+
+// 广度优先遍历
+template <class VexData>
+bool Graph<VexData>::BfsTravel()
+{
+	cout << "广度优先遍历顺序为：" << endl;
+	for (uint32_t i = 0; i < vex_num_; ++i)
+	{
+		if (!visit_b[i])
+		{
+			BFS(i);
+		}
+	}
+
+	return true;
+}
+
+uint32_t visit[MAX_SIZE] = {0};
+template <class VexData>
+void Graph<VexData>::DFS(uint32_t pos)
+{
+	EdgeNode* pnode = nullptr;
+	if (pos < 0 || pos >= vex_num_)
+	{
+		return;
+	}
+	else
+	{
+		visit[pos] = 1;
+		cout << "visit:" << adjlist_[pos].data << " ";
+		pnode = adjlist_[pos].next;
+
+		while (pnode)
+		{
+			if (visit[pnode->pos] != 1)
+				DFS(pnode->pos);
+			pnode = pnode->next;
+		}
+	}
+
+	cout << endl;
+}
+
+// 深度优先遍历
+template <class VexData>
+bool Graph<VexData>::DfsTravel()
+{
+	cout << "深度优先遍历顺序为：" << endl;
+	for (uint32_t i = 0; i < vex_num_; ++i)
+	{
+		if (!visit[i])
+		{
+			DFS(i);
+		}
+	}
+
+	return true;
+}
+
+template <class VexData>
+bool Graph<VexData>::Destory()
+{
+
+}
+
+int main()
+{
+	Graph<uint32_t> g(8, 9, false);
+	g.CreateGraph();
+	g.Print();
+	g.DfsTravel();
+	g.BfsTravel();
+	return 0;
+}
 #endif

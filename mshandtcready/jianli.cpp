@@ -1,4 +1,3 @@
-#if 0
 // leveldb
 /*
 LevelDb µÄÌØµã£º
@@ -18,4 +17,6 @@ LevelDbÐÔÄÜ·Ç³£Í»³ö£¬¹Ù·½ÍøÕ¾±¨µÀÆäËæ»úÐ´ÐÔÄÜ´ïµ½40ÍòÌõ¼ÇÂ¼Ã¿Ãë£¬¶øËæ»ú¶ÁÐÔÄÜ´ïµ
 //¢ÙÌØÊâµÄ±àÂë·½Ê½
 //¢Ú·â½â°üµÄËÙ¶È¿ì£º
 //·´¹Û Protobuf£¬ËüÖ»ÐèÒª¼òµ¥µØ½«Ò»¸ö¶þ½øÖÆÐòÁÐ£¬°´ÕÕÖ¸¶¨µÄ¸ñÊ½¶ÁÈ¡µ½ C++ ¶ÔÓ¦µÄ½á¹¹ÀàÐÍÖÐ¾Í¿ÉÒÔÁË¡£´ÓÉÏÒ»½ÚµÄÃèÊö¿ÉÒÔ¿´µ½ÏûÏ¢µÄ decoding ¹ý³ÌÒ²¿ÉÒÔÍ¨¹ý¼¸¸öÎ»ÒÆ²Ù×÷×é³ÉµÄ±í´ïÊ½¼ÆËã¼´¿ÉÍê³É¡£ËÙ¶È·Ç³£¿ì¡£
-#endif
+
+
+//LSM Ëã·¨
